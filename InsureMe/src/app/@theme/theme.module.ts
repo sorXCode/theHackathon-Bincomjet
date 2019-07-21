@@ -38,6 +38,12 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
+import { CreateNewComponent } from './components/create-new/create-new.component';
+import { RenewFormComponent } from './components/renew-form/renew-form.component';
+import { SingleProductComponent } from './components/single-product/single-product.component';
+import { BiodataFormComponent } from './components/biodata-form/biodata-form.component';
+import { WorkFormComponent } from './components/work-form/work-form.component';
+import { BankFormComponent } from './components/bank-form/bank-form.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -73,7 +79,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES],
+  declarations: [...COMPONENTS, ...PIPES, CreateNewComponent, RenewFormComponent, SingleProductComponent, BiodataFormComponent, WorkFormComponent, BankFormComponent],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {
