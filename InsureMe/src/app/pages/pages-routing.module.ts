@@ -1,3 +1,6 @@
+import { LifeCreateComponent } from './life-create/life-create.component';
+import { HealthCreateComponent } from './health-create/health-create.component';
+import { AutoCreateComponent } from './auto-create/auto-create.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -20,8 +23,20 @@ const routes: Routes = [
         component: InsuranceTypesComponent
       },
       {
+        path: 'auto-create',
+        component: AutoCreateComponent
+      },
+      {
+        path: 'health-create',
+        component: HealthCreateComponent
+      },
+      {
+        path: 'life-create',
+        component: LifeCreateComponent
+      },
+      {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'iot-dashboard',
         pathMatch: 'full'
       },
       {
