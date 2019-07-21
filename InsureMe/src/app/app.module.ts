@@ -11,6 +11,7 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -18,7 +19,7 @@ import {
   NbMenuModule,
   NbSidebarModule,
   NbToastrModule,
-  NbWindowModule,
+  NbWindowModule
 } from '@nebular/theme';
 
 @NgModule({
@@ -28,6 +29,7 @@ import {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    NbEvaIconsModule,
 
     ThemeModule.forRoot(),
 
@@ -38,11 +40,10 @@ import {
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY'
     }),
-    CoreModule.forRoot(),
+    CoreModule.forRoot()
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

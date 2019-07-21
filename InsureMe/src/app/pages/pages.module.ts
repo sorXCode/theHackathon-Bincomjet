@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule } from '@nebular/theme';
+import { NbMenuModule, NbAccordionModule, NbIconModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -14,6 +14,8 @@ import { InsuranceTypesComponent } from './insurance-types/insurance-types.compo
     ThemeModule,
     NbMenuModule,
     DashboardModule,
+    NbAccordionModule,
+    NbIconModule,
     MiscellaneousModule
   ],
   declarations: [PagesComponent, InsuranceTypesComponent]

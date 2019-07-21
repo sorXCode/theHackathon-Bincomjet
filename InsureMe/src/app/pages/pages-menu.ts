@@ -14,7 +14,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Policies',
-    icon: 'home-outline',
+    icon: 'folder-outline',
     link: '/pages/insurance-types'
   },
   {
