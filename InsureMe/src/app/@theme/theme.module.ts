@@ -44,6 +44,9 @@ import { SingleProductComponent } from './components/single-product/single-produ
 import { BiodataFormComponent } from './components/biodata-form/biodata-form.component';
 import { WorkFormComponent } from './components/work-form/work-form.component';
 import { BankFormComponent } from './components/bank-form/bank-form.component';
+import { HealthCreateComponent } from './components/health-create/health-create.component';
+import { LifeCreateComponent } from './components/life-create/life-create.component';
+import { AutoCreateComponent } from './components/auto-create/auto-create.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -79,7 +82,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES, CreateNewComponent, RenewFormComponent, SingleProductComponent, BiodataFormComponent, WorkFormComponent, BankFormComponent],
+  declarations: [...COMPONENTS, ...PIPES, CreateNewComponent, RenewFormComponent, SingleProductComponent, BiodataFormComponent, WorkFormComponent, BankFormComponent, HealthCreateComponent, LifeCreateComponent, AutoCreateComponent],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {
