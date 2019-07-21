@@ -1,4 +1,4 @@
-import { NbMenuService } from '@nebular/theme';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 })
 export class NotFoundComponent {
 
-  constructor(private menuService: NbMenuService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   goToHome() {
-    this.menuService.navigateHome();
+    this.router.navigate(['/'], {relativeTo: this.activatedRoute})
   }
 }

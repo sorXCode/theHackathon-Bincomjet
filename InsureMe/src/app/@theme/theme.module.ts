@@ -11,7 +11,7 @@ import {
   NbButtonModule,
   NbSelectModule,
   NbIconModule,
-  NbThemeModule,
+  NbThemeModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -20,33 +20,25 @@ import {
   FooterComponent,
   HeaderComponent,
   SearchInputComponent,
-  TinyMCEComponent,
+  TinyMCEComponent
 } from './components';
 import {
   CapitalizePipe,
   PluralPipe,
   RoundPipe,
   TimingPipe,
-  NumberWithCommasPipe,
+  NumberWithCommasPipe
 } from './pipes';
 import {
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
+  TwoColumnsLayoutComponent
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
-import { CreateNewComponent } from './components/create-new/create-new.component';
-import { RenewFormComponent } from './components/renew-form/renew-form.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
-import { BiodataFormComponent } from './components/biodata-form/biodata-form.component';
-import { WorkFormComponent } from './components/work-form/work-form.component';
-import { BankFormComponent } from './components/bank-form/bank-form.component';
-import { HealthCreateComponent } from './components/health-create/health-create.component';
-import { LifeCreateComponent } from './components/life-create/life-create.component';
-import { AutoCreateComponent } from './components/auto-create/auto-create.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -60,7 +52,7 @@ const NB_MODULES = [
   NbButtonModule,
   NbSelectModule,
   NbIconModule,
-  NbEvaIconsModule,
+  NbEvaIconsModule
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -70,19 +62,20 @@ const COMPONENTS = [
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+  SingleProductComponent
 ];
 const PIPES = [
   CapitalizePipe,
   PluralPipe,
   RoundPipe,
   TimingPipe,
-  NumberWithCommasPipe,
+  NumberWithCommasPipe
 ];
 
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES, CreateNewComponent, RenewFormComponent, SingleProductComponent, BiodataFormComponent, WorkFormComponent, BankFormComponent, HealthCreateComponent, LifeCreateComponent, AutoCreateComponent],
+  declarations: [...COMPONENTS, ...PIPES]
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {
@@ -91,11 +84,11 @@ export class ThemeModule {
       providers: [
         ...NbThemeModule.forRoot(
           {
-            name: 'default',
+            name: 'default'
           },
-          [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME ],
-        ).providers,
-      ],
+          [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME]
+        ).providers
+      ]
     };
   }
 }
