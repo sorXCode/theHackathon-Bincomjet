@@ -1,6 +1,19 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoCreateComponent } from './auto-create/auto-create.component';
 import { NgModule } from '@angular/core';
-import { NbMenuModule, NbAccordionModule, NbIconModule } from '@nebular/theme';
+import {
+  NbMenuModule,
+  NbAccordionModule,
+  NbIconModule,
+  NbInputModule,
+  NbCardModule,
+  NbButtonModule,
+  NbActionsModule,
+  NbUserModule,
+  NbCheckboxModule,
+  NbRadioModule,
+  NbDatepickerModule
+} from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -24,7 +37,17 @@ import { WorkFormComponent } from './work-form/work-form.component';
     DashboardModule,
     NbAccordionModule,
     NbIconModule,
-    MiscellaneousModule
+    MiscellaneousModule,
+    NbInputModule,
+    NbCardModule,
+    NbButtonModule,
+    NbActionsModule,
+    NbUserModule,
+    NbCheckboxModule,
+    NbRadioModule,
+    NbDatepickerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     PagesComponent,
