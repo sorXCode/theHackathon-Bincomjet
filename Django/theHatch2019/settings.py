@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'InsureMe.apps.InsuremeConfig',
-    'rest_frame',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
