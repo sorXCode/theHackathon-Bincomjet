@@ -11,6 +11,7 @@ import {
   NbActionsModule,
   NbUserModule,
   NbCheckboxModule,
+  NbSelectModule,
   NbRadioModule,
   NbDatepickerModule
 } from '@nebular/theme';
@@ -47,7 +48,8 @@ import { WorkFormComponent } from './work-form/work-form.component';
     NbRadioModule,
     NbDatepickerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NbSelectModule
   ],
   declarations: [
     PagesComponent,
