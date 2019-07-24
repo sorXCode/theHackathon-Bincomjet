@@ -14,7 +14,10 @@ import {
   NbButtonModule,
   NbSelectModule,
   NbIconModule,
-  NbThemeModule
+  NbThemeModule,
+  NbCheckboxModule,
+  NbCardModule,
+  NbInputModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -42,6 +45,9 @@ import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
 import { SingleProductComponent } from './components/single-product/single-product.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -55,7 +61,12 @@ const NB_MODULES = [
   NbButtonModule,
   NbSelectModule,
   NbIconModule,
-  NbEvaIconsModule
+  NbEvaIconsModule,
+  NbCheckboxModule,
+  NbInputModule,
+  NbCardModule,
+  ReactiveFormsModule,
+  FormsModule
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -81,7 +92,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES]
+  declarations: [...COMPONENTS, ...PIPES, RegisterComponent, LoginComponent]
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {
