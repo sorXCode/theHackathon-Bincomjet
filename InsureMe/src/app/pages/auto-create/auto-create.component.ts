@@ -10,6 +10,7 @@ export class AutoCreateComponent implements OnInit {
   auto_insurance: FormGroup;
   types = ['Van', 'Lorry', 'Jeep', 'Car', 'Cycle'];
   purposes = ['Commercial', 'Private'];
+  loading_types = ['General cartage', 'Passengers only', 'Goods only'];
   constructor() {}
 
   ngOnInit() {
@@ -26,9 +27,7 @@ export class AutoCreateComponent implements OnInit {
       chassis_num: new FormControl(''),
       mileage: new FormControl(''),
       purpose: new FormControl(''),
-      general_cartage: new FormControl(''),
-      goods_only: new FormControl(''),
-      passengers_only: new FormControl('')
+      loading_type: new FormControl('')
     });
   }
 

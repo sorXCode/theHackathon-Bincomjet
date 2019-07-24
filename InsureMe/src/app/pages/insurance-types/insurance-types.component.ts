@@ -20,4 +20,10 @@ export class InsuranceTypesComponent implements OnInit {
       relativeTo: this.activatedRoute
     });
   }
+
+  gotoLife() {
+    this.router.navigate(['/pages/life-create'], {
+      relativeTo: this.activatedRoute
+    });
+  }
 }
