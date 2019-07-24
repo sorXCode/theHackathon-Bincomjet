@@ -18,19 +18,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/insurance-types'
   },
   {
-    title: 'Forms-to-Create',
+    title: 'Buy Products',
     icon: 'checkmark-square-outline',
     children: [
       {
-        title: 'Auto Create',
+        title: 'Auto Insurance',
         link: '/pages/auto-create'
       },
       {
-        title: 'Health Create',
+        title: 'Health Insurance',
         link: '/pages/health-create'
       },
       {
-        title: 'Life Create',
+        title: 'Life Insurance',
         link: '/pages/life-create'
       }
     ]
