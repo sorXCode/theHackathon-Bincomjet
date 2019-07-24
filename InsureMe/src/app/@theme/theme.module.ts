@@ -1,3 +1,6 @@
+import { WorkFormComponent } from './components/work-form/work-form.component';
+import { BiodataFormComponent } from './components/biodata-form/biodata-form.component';
+import { BankFormComponent } from './components/bank-form/bank-form.component';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -62,7 +65,10 @@ const COMPONENTS = [
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
-  SingleProductComponent
+  SingleProductComponent,
+  BankFormComponent,
+  BiodataFormComponent,
+  WorkFormComponent
 ];
 const PIPES = [
   CapitalizePipe,
