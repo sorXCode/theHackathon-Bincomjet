@@ -1,0 +1,56 @@
+<div class="row">
+  <!-- Add a back button here and on the register component -->
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <h1 id="title" class="title text-center">Welcome back!</h1>
+    <nb-card>
+      <nb-card-header class="mx-auto">Log in with your email</nb-card-header>
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label class="label" for="input-email">Email address:</label>
+              <input
+                nbInput
+                fullWidth
+                type="email"
+                inputmode="email"
+                name="email"
+                id="input-email"
+                pattern=".+@.+\..+"
+                placeholder="Email address"
+                fieldSize="large"
+                autofocus
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label class="label" for="input-password">Password:</label>
+              <input
+                nbInput
+                type="password"
+                id="input-password"
+                name="password"
+                placeholder="Password"
+                fieldSize="large"
+                fullWidth
+              />
+            </div>
+          </div>
+
+          <button nbButton fullWidth status="primary" size="large">
+            Log In
+          </button>
+        </form>
+
+        <br />
+
+        <section class="text-center another-action" aria-label="Register">
+          Don't have an account?
+          <a class="text-link" (click)="gotoRegister()">Register</a>
+        </section>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
