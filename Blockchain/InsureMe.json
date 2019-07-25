@@ -1,0 +1,100 @@
+{
+    "ApplicationName": "InsureMe",
+    "DisplayName": "InsureMe",
+    "Description": "Smart Generation Insurance",
+    "ApplicationRoles": [{
+            "Name": "Insured",
+            "DisplayName": "Insured",
+            "Description": "Someone whose Interest is protected by an insurance policy."
+        },
+        {
+            "Name": "Insurer",
+            "DisplayName": "Insurer",
+            "Description": "The insurance company providing insurance cover."
+        }
+    ],
+    "Workflows": [{
+        "Name": "InsureMe",
+        "DisplayName": "InsureMe",
+        "Description": "Handles the insurance logic for a Insurer-Insured Scenario",
+        "Initiators": [
+            "Insurer"
+        ],
+        "StartState": "Registered",
+        "Properties": [{
+                "Name": "State",
+                "DisplayName": "State",
+                "Description": "Holds the State of the transaction",
+                "Type": {
+                    "Name": "state"
+                }
+            },
+            {
+                "Name": "InstanceRegistered",
+                "DisplayName": "Instance Registered",
+                "Description": "A registered User",
+                "Type": {
+                    "Name": "Registered"
+                }
+            }
+        ],
+        "Constructor": {
+            "Parameters": [{
+                "Name": "userData",
+                "DisplayName": "UserData",
+                "Description": "Pooled User Data",
+                "Type": {
+                    "Name": "UserProfile"
+                }
+            }]
+        },
+        "Functions": [{
+                "Name": "getName",
+                "DisplayName": "Recall Name",
+                "Description": "Recalls the First Name of user",
+                "Parameters": []
+            },
+            {
+                "Name": "closePolicy",
+                "DisplayName": "Close Policy",
+                "Description": "Closes Obtained Policy",
+                "Parameters": []
+            }
+        ],
+        "States": [{
+                "Name": "Registered",
+                "DisplayName": "Registered",
+                "Description": "The initial state of the InsureMe workflow",
+                "PercentComplete": 40,
+                "Style": "Success",
+                "Transitions": [{
+                        "Function": "getName",
+                        "DisplayName": "Recall Name",
+                        "Description": "Recalls the First Name of user",
+                        "AllowedRoles": [],
+                        "AllowedInstanceRole": [
+                            "InstanceRegistered"
+                        ],
+                        "NextStates": "RecalledName"
+                    },
+                    {
+                        "Function": "closePolicy",
+                        "DisplayName": "Close Policy",
+                        "Description": "Closes Obtained Policy",
+                        "AllowedRoles": [],
+                        "AllowedInstanceRole": [
+                            "Insurer"
+                        ],
+                        "NextStates": "PolicyClosed"
+                    }
+                ]
+            },
+            {
+                "Name": "getName",
+                "DisplayName": "Recall Name",
+                "Description": "Recalls the First Name of user",
+                "PercentComplete": 80,
+            }
+        ]
+    }]
+}

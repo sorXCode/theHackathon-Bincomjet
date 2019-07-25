@@ -1,4 +1,5 @@
 pragma solidity >=0.4.25 <0.6.0;
+pragma experimental ABIEncoderV2;
 
 contract InsureMe
 {
@@ -9,90 +10,157 @@ contract InsureMe
         Claim,
         PolicyClosed
     }
-    // enum 
+
     enum PolicyDurationType {
         _3Months,
         _9Months,
         _12Months,
         _18Months,
         _24Months
-        }
-
+    }
     enum PolicyType {
         Vehicle,
         Life,
         Health
     }
 
-    struct User{
+    struct Userprofile{
         string first_name;
         string last_name;
         string other_name;
         string phone;
         string email;
-        int BVN; //Bank Verification Number of user
+        string BVN;
         string username;
-        string[1] sex; //sex of user
-        uint date; //Date of account creation
+        string sex;
+        uint date;
+        StateType State;
     }
 
-    struct Description{
-        string name;
-        string id;
+    struct UsersIndex{
+        Userprofile usr;
+        int idPosition;
     }
 
-    address public InstanceInsurer;
-    PolicyType public Policy;
-    PolicyDurationType public PolicyDuration;
-    int public Premium;
+    struct VehicleDescription{
+        int avg_maintenance;
+        string chassis_num;
+        int cost_price;
+        string date_of_purchase;
+        bytes15 engine_num;
+        int fuel_capacity;
+        bool general_cartage;
+        bool goods_only;
+        int milage;
+        string model;
+        bool passengers_only;
+        string purpose;
+        int[] reg_no;
+        string vehicle_faults;
+        string vehicle_type;
+        }
 
+    struct VehiclesIndex{
+        VehicleDescription Desc;
+        int idPosition;
+    }
+    
+    
+    mapping (address => Userprofile) Users;
+    mapping (string => Userprofile) UsersByBVN;
+    mapping (address => VehicleDescription) InsuredVehicle;
+    mapping (bytes15 => VehiclesIndex) Vechicles;
+
+    mapping (address => string) public InstanceInsurer;
+    mapping (address => bool) public InsurersList;
+    address[] public UsersList;
+    bytes15[] public InsuredVechiclesEngNum;
+    // address public InstanceInsurer
 
     StateType public State;
-    User UserInfo;
+    string public name;
+    int[] paySchedule;
 
-    address public InstanceInsured;
-    // string public First_name;
-    // int public AmountPaid;
-
-    constructor(User memory details) public
+    int Premium;
+    
+    constructor(string memory _insurerName) public {
+        InstanceInsurer[msg.sender] = _insurerName;
+        InsurersList[msg.sender] = true;
+    }
+    
+    modifier onlyInsurer() {
+        require(InsurersList[msg.sender]);
+        _;
+    }
+    
+    modifier onlyUser() {
+        require(!InsurersList[msg.sender]);
+        _;
+    }
+    
+    modifier checkUsersRecord(){
+        //implement this if user record exists escape
+        _;
+    }
+    
+    function registerProfile(string memory _first_name,
+        string memory _last_name,
+        string memory _other_name,
+        string memory _phone,
+        string memory _email,
+        string memory _BVN,
+        string memory _username,
+        string memory _sex) onlyUser checkUsersRecord public
     {
-        InstanceInsured = msg.sender;
-        UserInfo = details;
+        address InstanceUser;
+
+        InstanceUser = msg.sender;
+        Users[InstanceUser].first_name = _first_name;
+        Users[InstanceUser].last_name = _last_name;
+        Users[InstanceUser].other_name = _other_name;
+        Users[InstanceUser].phone = _phone;
+        Users[InstanceUser].email = _email;
+        Users[InstanceUser].BVN = _BVN;
+        Users[InstanceUser].username = _username;
+        Users[InstanceUser].sex = _sex;
+        Users[InstanceUser].date = now;
+        UsersList.push(InstanceUser) -1;
+        UsersByBVN[_BVN] = Users[InstanceUser];
         State = StateType.Registered;
-    }
-
-    function TakePolicy(PolicyType policy,
-                        PolicyDurationType duration,
-                        description) public returns (string)
-    {
-        require(!checkItem(description), "Description exist in record");
-        Policy = policy;
-        PolicyDuration = duration;
-        Description = description;
-        Premium = calculatePremium();
-        
 
     }
 
-    function checkItem(description) public returns (bool)
-    {
-        //handle logic of contract here
-        if (require(description == InstanceInsured.description,
-                    "property already insured")){
-                        return False;
-                    }
-        else{
-            return True;
-        }
+
+    function getUsers() onlyInsurer public view returns(address[] memory) {
+        require( UsersList.length > 0, "onlyInsurer allowed to use this");
+        return UsersList;
+    }
+    
+    function getUser(address _userAddress) onlyInsurer public view returns (Userprofile memory){
+        return Users[_userAddress];
     }
 
-    function calculatePremium() public returns (int){
-        //logic of calculation here
+
+    function payPremium(int amount, bool _status)  public  returns (bool){
+        require(amount == Premium);
+        require (_status == true, "Payment was Unsuceessful");
+        Premium -= amount;
+    }
+
+
+    function getVehicleQuote() public view returns (int) {
+        //logic of evaluation here
         return Premium;
     }
 
+    modifier checkrecord(string memory _engine_num) {
+        require(InsuredVechiclesEngNum.length > 0);
+        
+        _;
+    }
 
-    function payPremium(int amount) public returns (string memory status){
-
+    function getVehiclePolicy() public returns (bytes10){
+        Premium = getVehicleQuote();
+        
     }
 }
