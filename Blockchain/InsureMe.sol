@@ -11,34 +11,13 @@ contract InsureMe
         PolicyClosed
     }
 
-    enum PolicyDurationType {
-        _3Months,
-        _9Months,
-        _12Months,
-        _18Months,
-        _24Months
-    }
-    enum PolicyType {
-        Vehicle,
-        Life,
-        Health
-    }
-
-    struct Userprofile{
-        string first_name;
-        string last_name;
-        string other_name;
-        string phone;
-        string email;
+    struct User{
         string BVN;
-        string username;
-        string sex;
-        uint date;
-        StateType State;
+        mapping (string => string) description;
     }
 
     struct UsersIndex{
-        Userprofile usr;
+        User user;
         int idPosition;
     }
 
