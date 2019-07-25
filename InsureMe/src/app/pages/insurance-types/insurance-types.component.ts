@@ -26,4 +26,9 @@ export class InsuranceTypesComponent implements OnInit {
       relativeTo: this.activatedRoute
     });
   }
+  gotoHealth() {
+    this.router.navigate(['/pages/health-create'], {
+      relativeTo: this.activatedRoute
+    });
+  }
 }
