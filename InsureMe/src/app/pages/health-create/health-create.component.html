@@ -1,3 +1,104 @@
-<p>
-  health-create works!
-</p>
+<div class="row">
+  <div class="col-xxl-12 col-lg-12 col-xxxl-12 col-sm-12">
+    <nb-card>
+      <nb-card-header>Buy New Health Insurance Policy</nb-card-header>
+
+      <nb-card-body>
+        <form [formGroup]="health_insurance" (ngSubmit)="submit()">
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label for="cover_amount" class="label"
+                >How much life insurance do you want us to quote?</label
+              >
+              <input
+                type="text"
+                fullWidth
+                nbInput
+                placeholder="How much cover?"
+                formControlName="cover_amount"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 col-sm-12 col-lg-6 col-xxl-6">
+              <label class="label" for="height">Enter your height</label>
+              <input
+                nbInput
+                type="text"
+                fullWidth
+                placeholder="height in feet or meters"
+                formControlName="height"
+              />
+            </div>
+
+            <div class="col-md-6 col-sm-12 col-lg-6 col-xxl-6">
+              <label class="label" for="weight">Enter your weight</label>
+              <input
+                nbInput
+                type="text"
+                fullWidth
+                placeholder="weight in kilograms"
+                formControlName="weight"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-xxl-12 col-sm-12">
+              <label class="label" for="current_cover"
+                >Do you have any current health insurance cover</label
+              >
+              <nb-radio-group
+                id="current_cover"
+                formControlName="current_cover"
+              >
+                <nb-radio
+                  *ngFor="let current_cover of options"
+                  [value]="current_cover"
+                >
+                  {{ current_cover }}
+                </nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-xxl-12 col-xxxl-12 col-sm-12">
+              <label for="history" class="label"
+                >Please describe your health history</label
+              >
+              <textarea
+                nbInput
+                fullWidth
+                id="history"
+                formControlName="health_history"
+                cols="15"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-xxl-12 col-sm-12">
+              <label for="additional_comments" class="label"
+                >Please add any additional comments or questions</label
+              >
+              <br />
+              <textarea
+                class="col-md-12 col-xxl-12 col-lg-12 col-xxxl-12"
+                nbInput
+                fullWidth
+                id="additional_comments"
+                cols="15"
+                rows="5"
+                formControlName="additional_comments"
+              ></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block">Submit</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
