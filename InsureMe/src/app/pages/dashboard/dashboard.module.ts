@@ -8,7 +8,8 @@ import {
   NbRadioModule,
   NbSelectModule,
   NbListModule,
-  NbIconModule
+  NbIconModule,
+  NbSpinnerModule
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     NbListModule,
     NbIconModule,
     NbButtonModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    NbSpinnerModule
   ],
   declarations: [DashboardComponent]
 })

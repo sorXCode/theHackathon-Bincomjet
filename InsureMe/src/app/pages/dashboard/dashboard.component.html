@@ -114,20 +114,28 @@
 
       <!-- The cards for tips and extra services -->
       <div class="col-xxl-6 col-xxxl-6 col-lg-6 col-sm-12">
-        <nb-card>
+        <nb-card *ngIf="!loading">
           <nb-card-header>
             Insurance Tips
           </nb-card-header>
-          <nb-card-body>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
-            similique est, ab fugiat atque iure, illum expedita eaque alias
-            culpa possimus quod velit molestias mollitia tempore omnis. Nihil
-            accusantium culpa deleniti magni sequi. Exercitationem, impedit
-            ratione? Sunt repellat neque expedita, voluptatem consectetur quasi
-            inventore cupiditate illo odit id alias dolores!
+          <nb-card-body *ngFor="let item of tips">
+           <span> {{ item.tip }}</span>
           </nb-card-body>
-          <nb-card-footer></nb-card-footer>
         </nb-card>
+
+        <div *ngIf="loading">
+          <nb-card [nbSpinner]="true" nbSpinnerStatus="success">
+            <nb-card-body>Insurance tips</nb-card-body>
+          </nb-card>
+        </div>
+
+        <div *ngIf="error">
+          <nb-card>
+            <nb-card-body>
+              <p>Error Loading Tips! Please check your network...</p>
+            </nb-card-body>
+          </nb-card>
+        </div>
 
         <nb-card>
           <nb-card-header>
