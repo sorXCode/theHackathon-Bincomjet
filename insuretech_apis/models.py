@@ -116,7 +116,7 @@ class Tips(models.Model):
     tip = models.TextField()
 
     class Meta:
-        ordering = ('insurance_type',)
+        ordering = ('-insurance_type',)
 
     def __str__(self):
         return f"{self.insurance_type} => {self.tip}"

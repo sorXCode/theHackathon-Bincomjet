@@ -15,18 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 from rest_framework import routers
+from django.conf.urls import url, include
+from .serializers import *
 
 '''urlpatterns = [
     path('snippets/', views.SnippetList.as_view()),
     path('snippets/<int:pk>/', views.SnippetDetail.as_view()),
 ]'''
 
-# router = routers.DefaultRouter()
-# router.register(r'', views.)
+router = routers.SimpleRouter()
+router.register(r'generaltips', GeneralTipsViewSet)
+router.register(r'autotips', AutoTipsViewSet)
+router.register(r'lifetips', LifeTipsViewSet)
+router.register(r'healthtips', HealthTipsViewSet)
+
 
 urlpatterns = [
     path('ad/', views.odd),
@@ -38,6 +43,7 @@ urlpatterns = [
     path('companydetails_api/', views.companydetails_api),
     path('motor_api/', views.motor_api),
     path('author_api/', views.author_api),
+    url(r'', include(router.urls)),
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+# urlpatterns = format_suffix_patterns(urlpatterns)
