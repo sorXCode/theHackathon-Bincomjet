@@ -13,7 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 @api_view(['POST',])
 def profile_update_api(request):
     try:
-        snippets = AInsuranceUserProfile.objects.get(token=request.POST.copy().get('token'))
+        token = request.data.copy().get('token') if not request.POST else request.POST.copy().get('token')
+        snippets = AInsuranceUserProfile.objects.get(token=token)
     except AInsuranceUserProfile.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'POST':
@@ -27,8 +28,11 @@ def profile_update_api(request):
 @api_view(['POST',])
 def profile_api(request):
     try:
-        snippets = AInsuranceUserProfile.objects.get(token=request.POST.copy().get('token'))
+        token = request.data.copy().get('token') if not request.POST else request.POST.copy().get('token')
+        snippets = AInsuranceUserProfile.objects.get(token=token)
+        print('success')
     except AInsuranceUserProfile.DoesNotExist:
+        print('failed')
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'POST':
         serializer = AInsuranceUserProfileSerializer(snippets,data=request.data)
@@ -42,7 +46,8 @@ def profile_api(request):
 def profile_login_api(request):
     #works
     try:
-        snippets = AInsuranceUserProfile.objects.get(username=request.POST.copy().get('username'))
+        token = request.data.copy().get('token') if not request.POST else request.POST.copy().get('token')
+        snippets = AInsuranceUserProfile.objects.get(username=token)
     except AInsuranceUserProfile.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'POST':
@@ -54,7 +59,6 @@ def profile_login_api(request):
 def profile_create_api(request):
     if request.method == 'POST':
         #works
-        print(request.data)
         serializer = AInsuranceUserProfileSerializer(data=request.data)
         print(serializer)
         if serializer.is_valid():
