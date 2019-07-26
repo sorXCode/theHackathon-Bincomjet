@@ -2,12 +2,6 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from . import keygenv1 as kv
-<<<<<<< HEAD
-
-
-||||||| merged common ancestors
-
-=======
 import string
 import random
 
@@ -29,7 +23,6 @@ class At():
             return keygen2()
 
         return main(a, b)
->>>>>>> baefd3a1a044460c4ac1d2cd8f311c7390eec813
 class AInsuranceUserProfile (models.Model):
     def __init__(self, *args, **kwargs):
         models.Model.__init__(self, *args, **kwargs)
@@ -41,14 +34,7 @@ class AInsuranceUserProfile (models.Model):
     email = models.EmailField(blank=True, default='')
     registrationdate = models.DateTimeField(auto_now_add=True)
     image = models.URLField(blank=True, default='')
-<<<<<<< HEAD
-    token = models.CharField(max_length=100, default=str(kv.main(4, 12)),)
-
-||||||| merged common ancestors
-    token = models.CharField(max_length=100, default=str(kv.main(4,12)),)
-=======
     token = models.CharField(max_length=100, blank=True, )
->>>>>>> baefd3a1a044460c4ac1d2cd8f311c7390eec813
     def __str__(self):
         return self.username
 
