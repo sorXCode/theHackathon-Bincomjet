@@ -102,4 +102,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.router.navigate(['/'], { relativeTo: this.activatedRoute });
   }
+
+  openProfile() {
+    this.router.navigate(['user-profile'], {
+      relativeTo: this.activatedRoute
+    });
+    // console.log('navigate to profile');
+  }
 }

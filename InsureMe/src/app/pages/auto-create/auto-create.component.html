@@ -62,24 +62,30 @@
               </div>
 
               <div class="form-group row">
-                  <div class="col-md-4 col-sm-12 col-xxl-4">
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
                     <label for="chassis_num" class="label">Chassis number</label>
                     <input type="text" nbInput fullWidth id="chassis_num" placeholder="Chassis No" formControlName="chassis_num">
                   </div>
       
-                  <div class="col-md-4 col-sm-12 col-xxl-4">
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
                     <label for="mileage" class="label">Mileage covered</label>
                     <input type="text" nbInput fullWidth id="mileage" placeholder="Mileage covered" formControlName="mileage">
                     </div>
+                  </div>
   
-  
-                  <div class="col-md-4 col-sm-12 col-xxl-4">
+                  <div class="form-group row">
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
                     <label for="purpose" class="label">Purpose</label> <br>
                     <nb-select class="col-md-4 col-sm-12 col-xxl-4" id="purpose" formControlName="purpose" placeholder="--Purpose--">
                       <nb-option *ngFor="let purpose of purposes" [value]="purpose">
                         {{ purpose }}
                       </nb-option>
                     </nb-select>
+                  </div>
+
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
+                    <label for="auto_img" class="label">Please upload the image of the vehicle</label>
+                    <input type="file" accept="image/*" nbInput formControlName="auto_img" (change)="onFileSelected($event)" name="auto_img" id="auto_img" >
                   </div>
                 </div>   
 

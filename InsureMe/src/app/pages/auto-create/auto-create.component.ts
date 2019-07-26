@@ -27,8 +27,13 @@ export class AutoCreateComponent implements OnInit {
       chassis_num: new FormControl(''),
       mileage: new FormControl(''),
       purpose: new FormControl(''),
-      loading_type: new FormControl('')
+      loading_type: new FormControl(''),
+      auto_img: new FormControl('')
     });
+  }
+
+  onFileSelected(event) {
+    console.log(event);
   }
 
   submit() {
