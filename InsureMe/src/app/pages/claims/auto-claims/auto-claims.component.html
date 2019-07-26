@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <nb-card>
+      <nb-card-header
+        >Make Claim For Your Auto-Insurance Product</nb-card-header
+      >
+      <nb-card-body>
+        <form [formGroup]="auto_claims" (ngSubmit)="submit()">
+          <div class="form-group row">
+            <div class="col-md-3 col-lg-3 col-xxl-3 col-sm-12">
+              <!-- Send product ID as part of form data -->
+              <!-- <label for="product_id" class="label">Product ID</label> -->
+              <label class="label" for="damage_type">Type of Loss/Damage</label
+              ><br />
+              <nb-select
+                class="col-md-3 col-xxl-3 col-lg-3 col-sm-12"
+                id="damage_type"
+                placeholder="--Damage/Loss Type--"
+                fullWidth
+                formControlName="damage_type"
+              >
+                <nb-option *ngFor="let type of types" [value]="type">
+                  {{ type }}
+                </nb-option>
+              </nb-select>
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-xxl-3 col-sm-12">
+              <!-- Send product ID as part of form data -->
+              <!-- <label for="product_id" class="label">Product ID</label> -->
+              <label class="label" for="injured">Any injured person?</label
+              ><br />
+              <nb-select
+                class="col-md-3 col-xxl-3 col-lg-3 col-sm-12"
+                id="injured"
+                placeholder="--Injured-"
+                fullWidth
+                formControlName="person_injured"
+              >
+                <nb-option *ngFor="let choice of choices" [value]="choice">
+                  {{ choice }}
+                </nb-option>
+              </nb-select>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-sm-12 col-xxl-6 col-xxxl-6">
+              <label for="img" class="label"
+                >Please upload a picture of the damaged vehicle or police report
+                for theft</label
+              ><br />
+              <input type="file" name="img" accept="image/*" nbInput id="img" formControlName="image_url" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl col-xxxl-12">
+              <label for="description" class="label"
+                >Description of Loss or Accident</label
+              ><br />
+              <textarea
+                class="col-md-12 col-lg-12 col-sm-12 col-xxl col-xxxl-12"
+                fullWidth
+                nbInput
+                id="description"
+                formControlName="damage_description"
+                cols="15"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+
+          <button class="btn-block btn btn-primary">Submit</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

@@ -13,7 +13,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Buy Products',
-    icon: 'checkmark-square-outline',
+    icon: 'shopping-cart-outline',
     children: [
       {
         title: 'Auto Insurance',
@@ -30,6 +30,42 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   },
   {
+    title: 'My Policies',
+    icon: 'folder-outline',
+    children: [
+      {
+        title: 'Auto Insurance Policies',
+        link: '/pages/my-policies'
+      },
+      {
+        title: 'Health Insurance Policies',
+        link: '/pages/health-policies'
+      },
+      {
+        title: 'Life Insurance Policies',
+        link: '/pages/life-policies'
+      }
+    ]
+  },
+  {
+    title: 'Make Claims',
+    icon: 'checkmark-square-outline',
+    children: [
+      {
+        title: 'Auto Insurance Claims',
+        link: '/pages/claims/auto-claims'
+      },
+      {
+        title: 'Health Insurance Claims',
+        link: '/pages/claims/health-claims'
+      },
+      {
+        title: 'Life Insurance Claims',
+        link: '/pages/claims/life-claims'
+      }
+    ]
+  },
+  {
     title: 'Auth',
     icon: 'lock-outline',
     children: [
@@ -40,6 +76,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Register',
         link: '/register'
+      }
+    ]
+  },
+  {
+    title: 'Edit Profile Information',
+    icon: 'folder-outline',
+    children: [
+      {
+        title: 'Profile',
+        link: '/biodata-form'
+      },
+      {
+        title: 'Add New Bank Details',
+        link: '/bank-form'
+      },
+      {
+        title: 'Add New Work Details',
+        link: '/work-form'
       }
     ]
   }
