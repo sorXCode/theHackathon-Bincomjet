@@ -2,36 +2,55 @@ from django.contrib import admin
 from django.utils import timezone
 from . import models
 
-
 @admin.register(models.AInsuranceUserProfile)
 class AInsuranceUserProfileAdmin(admin.ModelAdmin):
     # list view
-    list_display = ['username', 'firstname', 'lastname', 'token']
-
+    list_display  = ['email','username','firstname','lastname','token']
 
 @admin.register(models.AUserbankDetails)
 class AUserbankDetailsAdmin(admin.ModelAdmin):
     # list view
-    list_display = ['account_name', 'bank_name', 'account_number']
-
+    list_display  = ['account_name','bank_name','account_number']
 
 @admin.register(models.AUserworkDetails)
 class AUserworkDetailsAdmin(admin.ModelAdmin):
     # list view
-    list_display = ['company_name', 'role', ]
-
+    list_display  = ['company_name','role',]
 
 @admin.register(models.AMotorInsurance)
 class AMotorInsuranceAdmin(admin.ModelAdmin):
     # list view
-    list_display = ['chassis_number', 'date_of_purchase', 'cost_price']
+    list_display  = ['insuranceuserprofile','chassis_number','date_of_purchase','cost_price']
 
-
-@admin.register(models.Author)
-class AuthorAdmin(admin.ModelAdmin):
+@admin.register(models.ClaimMotor)
+class ClaimMotorAdmin(admin.ModelAdmin):
     # list view
-    list_display = ['username', 'linenos', 'created']
+    list_display  = ['insuranceuserprofile','status','date_of_claim']
 
+@admin.register(models.MotorUpdateRecord)
+class MotorUpdateRecordAdmin(admin.ModelAdmin):
+    # list view
+    list_display  = ['insuranceuserprofile','description','date_of_claim']
+
+@admin.register(models.PremiumMotor)
+class PremiumMotorAdmin(admin.ModelAdmin):
+    # list view
+    list_display  = ['insuranceuserprofile','payment_status','amount']
+
+@admin.register(models.ClaimMotor)
+class ClaimMotorAdmin(admin.ModelAdmin):
+    # list view
+    list_display  = ['insuranceuserprofile','status','claimcover']
+
+@admin.register(models.CreditReceipt)
+class CreditReceiptAdmin(admin.ModelAdmin):
+    # list view
+    list_display  = ['insuranceuserprofile','description']
+
+@admin.register(models.PaymentReceipt)
+class PaymentReceiptAdmin(admin.ModelAdmin):
+    # list view
+    list_display  = ['insuranceuserprofile','description']
 
 @admin.register(models.Tips)
 class TipsAdmin(admin.ModelAdmin):
