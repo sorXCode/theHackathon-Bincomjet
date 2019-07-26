@@ -26,7 +26,7 @@ class AMotorInsuranceAdmin(admin.ModelAdmin):
 @admin.register(models.MotorUpdateRecord)
 class MotorUpdateRecordAdmin(admin.ModelAdmin):
     # list view
-    list_display  = ['insuranceuserprofile','description','date_of_claim']
+    list_display  = ['insuranceuserprofile','description',]
 
 @admin.register(models.PremiumMotor)
 class PremiumMotorAdmin(admin.ModelAdmin):
