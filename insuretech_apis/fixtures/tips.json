@@ -1,0 +1,25 @@
+[{
+        "model": "insuretech_apis.tips",
+        "pk": 1,
+        "fields": {
+            "insurance_type": "general",
+            "tip": "Get Your properties covered with insurance."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "pk": 2,
+        "fields": {
+            "insurance_type": "general",
+            "tip": "The only policy you can have back is insurance policy. Get more today!"
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "pk": 3,
+        "fields": {
+            "insurance_type": "general",
+            "tip": "Do you know good insurance is an assurance? Get a policy today!"
+        }
+    }
+]
