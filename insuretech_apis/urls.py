@@ -18,12 +18,15 @@ from django.urls import path
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
+from rest_framework import routers
 
 '''urlpatterns = [
     path('snippets/', views.SnippetList.as_view()),
     path('snippets/<int:pk>/', views.SnippetDetail.as_view()),
 ]'''
 
+# router = routers.DefaultRouter()
+# router.register(r'', views.)
 
 urlpatterns = [
     path('ad/', views.odd),
