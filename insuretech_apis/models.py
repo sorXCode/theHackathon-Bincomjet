@@ -2,7 +2,27 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from . import keygenv1 as kv
+import string
+import random
 
+class At():
+    @classmethod
+    def toks(cls, a, b):
+        SEQ = string.ascii_uppercase + string.digits
+
+        def shake(seq, n):
+            randomstr = (','.join(random.choice(seq) for _ in range(n))).split(',')
+            for i in range(n):
+                random.shuffle(randomstr)
+            return ''.join(randomstr)
+
+        def main(pattern_no, str_len, count=1000):
+            keygen = lambda: '-'.join(shake(SEQ, pattern_no) for _ in range(str_len))
+            keygen2 = lambda: ''.join(shake(SEQ, pattern_no) for _ in range(str_len))
+            table = [keygen() for i in range(count)]
+            return keygen2()
+
+        return main(a, b)
 class AInsuranceUserProfile (models.Model):
     def __init__(self,*args,**kwargs):
         models.Model.__init__(self,*args,**kwargs)
@@ -14,16 +34,17 @@ class AInsuranceUserProfile (models.Model):
     email = models.EmailField(blank=True, default='')
     registrationdate = models.DateTimeField(auto_now_add=True)
     image = models.URLField(blank=True, default='')
-    token = models.CharField(max_length=100, default=str(kv.main(4,12)),)
+    token = models.CharField(max_length=100, blank=True, )
     def __str__(self):
         return self.username
 
 
 
 @receiver(post_save, sender=AInsuranceUserProfile)
-def save_password(sender, instance, **kwargs):
+def save_token(sender, instance, **kwargs):
     if kwargs['created']:
-        pass
+        instance.token = At.toks(4,12)
+        instance.save()
     else:
         pass
 
