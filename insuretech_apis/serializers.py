@@ -51,33 +51,7 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         fields = ['username',  'linenos', 'created']
 
-
-# class TipsSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = Tips
-#         fields = ['tip', 'insurance_type']
-
 class TipsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tips
         fields = ['tip',]
-
-
-
-class GeneralTipsViewSet(viewsets.ModelViewSet):
-    queryset = Tips.objects.filter(insurance_type="general")
-    serializer_class = TipsSerializer
-
-
-class AutoTipsViewSet(viewsets.ModelViewSet):
-    queryset = Tips.objects.filter(insurance_type="auto")
-    serializer_class = TipsSerializer
-
-class LifeTipsViewSet(viewsets.ModelViewSet):
-    queryset = Tips.objects.filter(insurance_type="life")
-    serializer_class = TipsSerializer
-
-class HealthTipsViewSet(viewsets.ModelViewSet):
-    queryset = Tips.objects.filter(insurance_type="health")
-    serializer_class = TipsSerializer
-

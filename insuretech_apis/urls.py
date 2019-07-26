@@ -27,10 +27,10 @@ from .serializers import *
 ]'''
 
 router = routers.SimpleRouter()
-router.register(r'generaltips', GeneralTipsViewSet)
-router.register(r'autotips', AutoTipsViewSet)
-router.register(r'lifetips', LifeTipsViewSet)
-router.register(r'healthtips', HealthTipsViewSet)
+router.register(r'generaltips', views.GeneralTipsViewSet)
+router.register(r'autotips', views.AutoTipsViewSet)
+router.register(r'lifetips', views.LifeTipsViewSet)
+router.register(r'healthtips', views.HealthTipsViewSet)
 
 
 urlpatterns = [

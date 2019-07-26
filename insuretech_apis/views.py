@@ -144,3 +144,23 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 def odd(request):
     pass
+
+
+
+class GeneralTipsViewSet(viewsets.ModelViewSet):
+    queryset = Tips.objects.filter(insurance_type="general")
+    serializer_class = TipsSerializer
+
+
+class AutoTipsViewSet(viewsets.ModelViewSet):
+    queryset = Tips.objects.filter(insurance_type="auto")
+    serializer_class = TipsSerializer
+
+class LifeTipsViewSet(viewsets.ModelViewSet):
+    queryset = Tips.objects.filter(insurance_type="life")
+    serializer_class = TipsSerializer
+
+class HealthTipsViewSet(viewsets.ModelViewSet):
+    queryset = Tips.objects.filter(insurance_type="health")
+    serializer_class = TipsSerializer
+
