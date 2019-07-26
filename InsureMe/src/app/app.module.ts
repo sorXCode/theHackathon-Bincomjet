@@ -1,3 +1,4 @@
+import { InformationService } from './providers/information.service';
 /**
  * @license
  * Copyright Akveo. All Rights Reserved.
@@ -44,6 +45,7 @@ import {
     }),
     CoreModule.forRoot()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [InformationService]
 })
 export class AppModule {}
