@@ -22,10 +22,6 @@ class AMotorInsuranceAdmin(admin.ModelAdmin):
     # list view
     list_display  = ['insuranceuserprofile','chassis_number','date_of_purchase','cost_price']
 
-@admin.register(models.ClaimMotor)
-class ClaimMotorAdmin(admin.ModelAdmin):
-    # list view
-    list_display  = ['insuranceuserprofile','status','date_of_claim']
 
 @admin.register(models.MotorUpdateRecord)
 class MotorUpdateRecordAdmin(admin.ModelAdmin):
