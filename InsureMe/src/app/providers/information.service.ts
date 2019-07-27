@@ -8,10 +8,17 @@ export class InformationService {
   tips_url: string =
     'http://uraniumkid40.pythonanywhere.com/insuretech_apis/generaltips/';
 
+  register_url: string =
+    'http://uraniumkid40.pythonanywhere.com/insuretech_apis/profile_create_api/';
+
   fetchTips() {
     return this.http
       .get(this.tips_url)
       .toPromise()
       .then(res => res);
+  }
+
+  registerUser(data) {
+    return this.http.post(this.register_url, data).toPromise();
   }
 }
