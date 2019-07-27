@@ -11,6 +11,7 @@ import { NbToastrService } from '@nebular/theme';
 })
 export class RegisterComponent implements OnInit {
   reg_form: FormGroup;
+  loggedIn = false;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -21,18 +22,18 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.reg_form = new FormGroup({
       email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      r_password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required)
+      // r_password: new FormControl('', Validators.required)
     });
   }
 
   register() {
     const password = this.reg_form.value.password;
-    const repeated = this.reg_form.value.r_password;
-    if (password !== repeated) {
-      // this.showToast('top-right', 'Passwords do not match!');
-      alert('Passwords do not match!');
-    }
+    // const repeated = this.reg_form.value.r_password;
+    // if (password !== repeated) {
+    //   // this.showToast('top-right', 'Passwords do not match!');
+    //   alert('Passwords do not match!');
+    // }
     const data = {
       email: this.reg_form.value.email,
       password: this.reg_form.value.password
@@ -41,8 +42,20 @@ export class RegisterComponent implements OnInit {
     this.infoService
       .registerUser(data)
       .then(res => res)
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
+      .then(data => {
+        console.log(data);
+        const token = data['token'];
+        sessionStorage.setItem('token', token);
+        this.loggedIn = true;
+        alert('Sign up successful!');
+        this.router.navigate(['/'], { relativeTo: this.activatedRoute });
+        console.log('Navigated to Home!');
+      })
+      .catch(err => {
+        console.log(err);
+        this.loggedIn = false;
+        alert('Error signing up!');
+      });
   }
   gotoLogin() {
     this.router.navigate(['/login'], { relativeTo: this.activatedRoute });
