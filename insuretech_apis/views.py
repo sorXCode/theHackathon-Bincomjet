@@ -10,43 +10,50 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
-@api_view(['POST',])
+@api_view(['POST', ])
 def profile_update_api(request):
     try:
-        token = request.data.copy().get('token') if not request.POST else request.POST.copy().get('token')
+        token = request.data.copy().get(
+            'token') if not request.POST else request.POST.copy().get('token')
         snippets = AInsuranceUserProfile.objects.get(token=token)
     except AInsuranceUserProfile.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'POST':
-        serializer = AInsuranceUserProfileSerializer(snippets, data=request.data)
+        serializer = AInsuranceUserProfileSerializer(
+            snippets, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @csrf_exempt
-@api_view(['POST',])
+@api_view(['POST', ])
 def profile_api(request):
     try:
-        token = request.data.copy().get('token') if not request.POST else request.POST.copy().get('token')
+        token = request.data.copy().get(
+            'token') if not request.POST else request.POST.copy().get('token')
         snippets = AInsuranceUserProfile.objects.get(token=token)
         print('success')
     except AInsuranceUserProfile.DoesNotExist:
         print('failed')
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'POST':
-        serializer = AInsuranceUserProfileSerializer(snippets,data=request.data)
+        serializer = AInsuranceUserProfileSerializer(
+            snippets, data=request.data)
         if serializer.is_valid():
-            #serializer.save()
+            # serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @csrf_exempt
-@api_view(['POST',])
+@api_view(['POST', ])
 def profile_login_api(request):
-    #works
+    # works
     try:
-        token = request.data.copy().get('token') if not request.POST else request.POST.copy().get('token')
+        token = request.data.copy().get(
+            'token') if not request.POST else request.POST.copy().get('token')
         snippets = AInsuranceUserProfile.objects.get(username=token)
     except AInsuranceUserProfile.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -54,17 +61,19 @@ def profile_login_api(request):
         serializer = ProfileLoginSerializer(snippets)
         return Response(serializer.data,)
 
+
 @csrf_exempt
-@api_view(['POST',])
+@api_view(['POST', ])
 def profile_create_api(request):
     if request.method == 'POST':
-        #works
+        # works
         serializer = AInsuranceUserProfileSerializer(data=request.data)
         print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'POST'])
 def bankdetails_api(request):
@@ -81,6 +90,7 @@ def bankdetails_api(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(['GET', 'POST'])
 def companydetails_api(request):
     if request.method == 'GET':
@@ -95,6 +105,7 @@ def companydetails_api(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'POST'])
 def motor_api(request):
@@ -111,6 +122,7 @@ def motor_api(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(['GET', 'POST'])
 def author_api(request):
     if request.method == 'GET':
@@ -125,6 +137,7 @@ def author_api(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 '''class UserViewSet(viewsets.ModelViewSet):
     """
@@ -142,13 +155,13 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer'''
 
+
 def odd(request):
     pass
 
 
-
 class GeneralTipsViewSet(viewsets.ModelViewSet):
-    queryset = Tips.objects.filter(insurance_type="general")
+    queryset = Tips.objects.filter(insurance_type="general")[:10]
     serializer_class = TipsSerializer
 
 
@@ -156,11 +169,12 @@ class AutoTipsViewSet(viewsets.ModelViewSet):
     queryset = Tips.objects.filter(insurance_type="auto")
     serializer_class = TipsSerializer
 
+
 class LifeTipsViewSet(viewsets.ModelViewSet):
     queryset = Tips.objects.filter(insurance_type="life")
     serializer_class = TipsSerializer
 
+
 class HealthTipsViewSet(viewsets.ModelViewSet):
     queryset = Tips.objects.filter(insurance_type="health")
     serializer_class = TipsSerializer
-

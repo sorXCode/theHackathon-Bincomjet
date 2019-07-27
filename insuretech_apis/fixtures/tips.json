@@ -1,6 +1,5 @@
 [{
         "model": "insuretech_apis.tips",
-        "pk": 1,
         "fields": {
             "insurance_type": "general",
             "tip": "Get Your properties covered with insurance."
@@ -8,7 +7,6 @@
     },
     {
         "model": "insuretech_apis.tips",
-        "pk": 2,
         "fields": {
             "insurance_type": "general",
             "tip": "The only policy you can have back is insurance policy. Get more today!"
@@ -16,10 +14,128 @@
     },
     {
         "model": "insuretech_apis.tips",
-        "pk": 3,
         "fields": {
             "insurance_type": "general",
             "tip": "Do you know good insurance is an assurance? Get a policy today!"
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "life",
+            "tip": "Insure your greatest asset - YOU!"
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "life",
+            "tip": "Protect your loved ones and family with Insurance."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "general",
+            "tip": "Nobody know what lies around the corner. Insurance cover you to after the corner."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "general",
+            "tip": "Insurance offers a payout for unseen event for you and your family. Get insurance today!."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "general",
+            "tip": "No amount of money is equal to your health and well-being. Get peace of mind with insurance."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Check your tire pressures to save fuel and handling."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Check your engine coolant level today!"
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Is your windshield wipers old? Change it today!"
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "health",
+            "tip": "No amount of money is equal to your health and well-being. Always take care of yourself."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "life",
+            "tip": "No amount of money is equal to your health and well-being. Always take care of yourself."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "general",
+            "tip": "Leave a legacy behind for your children and protect their standard of living with life insurance."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Your car can not break down without warning. Watch your light indicators and listen to your car!"
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "health",
+            "tip": "No amount of money is equal to your health and well-being. Always take care of yourself."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Have you carried out maintenance checks today? Your vehicle need it for optimum funtioning."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Regular maintenance saves you expensive repair costs."
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Well-maintained car commands high resale value"
+        }
+    },
+    {
+        "model": "insuretech_apis.tips",
+        "fields": {
+            "insurance_type": "auto",
+            "tip": "Roadside emergencies can be minimized with regular."
         }
     }
 ]
