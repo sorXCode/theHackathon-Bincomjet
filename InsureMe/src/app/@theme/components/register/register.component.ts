@@ -51,10 +51,10 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/'], { relativeTo: this.activatedRoute });
   }
 
-  showToast(position, message) {
-    this.toastrService.show(message || 'User successfully registered', {
-      position,
-      message
-    });
-  }
+  // showToast(position, message) {
+  //   this.toastrService.show(message || 'User successfully registered', {
+  //     position,
+  //     message
+  //   });
+  // }
 }
