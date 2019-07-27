@@ -17,7 +17,8 @@ import {
   NbThemeModule,
   NbCheckboxModule,
   NbCardModule,
-  NbInputModule
+  NbInputModule,
+  NbToastrModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -66,7 +67,9 @@ const NB_MODULES = [
   NbInputModule,
   NbCardModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  NbToastrModule.forRoot(),
+
 ];
 const COMPONENTS = [
   HeaderComponent,
