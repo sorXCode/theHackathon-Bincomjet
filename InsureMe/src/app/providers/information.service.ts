@@ -11,6 +11,9 @@ export class InformationService {
   register_url: string =
     'http://uraniumkid40.pythonanywhere.com/insuretech_apis/profile_create_api/';
 
+  update_url: string =
+    'http://uraniumkid40.pythonanywhere.com/insuretech_apis/profile_update_api/';
+
   fetchTips() {
     return this.http
       .get(this.tips_url)
@@ -20,5 +23,9 @@ export class InformationService {
 
   registerUser(data) {
     return this.http.post(this.register_url, data).toPromise();
+  }
+
+  updateProfile(data) {
+    return this.http.post(this.update_url, data).toPromise();
   }
 }
