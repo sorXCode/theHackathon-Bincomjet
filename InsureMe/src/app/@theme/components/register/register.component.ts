@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
         const token = data['token'];
         sessionStorage.setItem('token', token);
         this.loggedIn = true;
-        alert('Sign up successful!');
         this.router.navigate(['/'], { relativeTo: this.activatedRoute });
         console.log('Navigated to Home!');
       })

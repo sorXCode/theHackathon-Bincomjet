@@ -1,3 +1,4 @@
+import { InformationService } from './../../../providers/information.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -8,7 +9,12 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./biodata-form.component.scss']
 })
 export class BiodataFormComponent implements OnInit {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  imageObj: any;
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private infoService: InformationService
+  ) {}
   biodata_form: FormGroup;
 
   ngOnInit() {
@@ -21,7 +27,35 @@ export class BiodataFormComponent implements OnInit {
     });
   }
 
-  submit() {}
+  handleImg(e) {
+    console.log('image:', e);
+    const file = e.target.files[0];
+    this.imageObj = file || file.name;
+  }
+
+  submit() {
+    console.log(
+      'form values:',
+      this.biodata_form.value,
+      'image: ',
+      this.imageObj
+    );
+    const username = this.biodata_form.value.username;
+    const firstname = this.biodata_form.value.firstname;
+    const lastname = this.biodata_form.value.lastname;
+    const email = this.biodata_form.value.email;
+    const image = this.imageObj;
+
+    const data = {
+      username,
+      firstname,
+      lastname,
+      email,
+      image
+    };
+    // Do API transaction here
+    console.table(data);
+  }
   goBack() {
     this.router.navigate(['/'], { relativeTo: this.activatedRoute });
   }

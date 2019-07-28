@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
-    <h1 id="title" class="title text-center">Enter your Bank Details</h1>
+    <h1 id="title" style="color:dimgrey" class="title text-center">
+      Enter your Personal Details
+    </h1>
     <nb-card>
       <nb-card-header>
         <nav class="navigation">
@@ -24,7 +26,7 @@
                 fullWidth
                 id="firstname"
                 formControlName="firstname"
-                placeholder="bank name"
+                placeholder="First name"
               />
             </div>
 
@@ -36,7 +38,7 @@
                 fullWidth
                 id="lastname"
                 formControlName="lastname"
-                placeholder="lastname"
+                placeholder="Last name"
               />
             </div>
           </div>
@@ -46,7 +48,7 @@
               <label for="username" class="label">User name</label>
               <input
                 nbInput
-                type="number"
+                type="text"
                 formControlName="username"
                 placeholder="Username"
                 id="username"
@@ -58,7 +60,8 @@
               <label for="email" class="label">Email address</label>
               <input
                 nbInput
-                type="number"
+                type="email"
+                inputmode="email"
                 placeholder="Email"
                 id="email"
                 formControlName="email"
@@ -75,11 +78,17 @@
                 accept="image/*"
                 formControlName="image"
                 fullWidth
+                (change)="handleImg($event)"
               />
             </div>
           </div>
 
-          <button class="btn-block btn btn-primary">Submit</button>
+          <button
+            class="btn-block btn btn-primary"
+            [disabled]="!biodata_form.valid"
+          >
+            Submit
+          </button>
         </form>
       </nb-card-body>
     </nb-card>
