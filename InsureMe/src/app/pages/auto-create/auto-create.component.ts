@@ -1,3 +1,4 @@
+import { InformationService } from './../../providers/information.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -11,7 +12,7 @@ export class AutoCreateComponent implements OnInit {
   types = ['Van', 'Lorry', 'Jeep', 'Car', 'Cycle'];
   purposes = ['Commercial', 'Private'];
   loading_types = ['General cartage', 'Passengers only', 'Goods only'];
-  constructor() {}
+  constructor(private infoService: InformationService) {}
 
   ngOnInit() {
     this.auto_insurance = new FormGroup({
@@ -38,5 +39,9 @@ export class AutoCreateComponent implements OnInit {
 
   submit() {
     console.log('form values:', this.auto_insurance.value);
+    const data = {
+      form: this.auto_insurance.value
+    };
+    this.infoService.setAutoData(data);
   }
 }

@@ -34,7 +34,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'folder-outline',
     children: [
       {
-        title: 'Auto Insurance Policies',
+        title: 'My Policies',
         link: '/pages/my-policies'
       },
       {

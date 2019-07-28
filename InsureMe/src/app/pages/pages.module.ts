@@ -14,7 +14,8 @@ import {
   NbSelectModule,
   NbRadioModule,
   NbDatepickerModule,
-  NbSpinnerModule
+  NbSpinnerModule,
+  NbTreeGridModule
 } from '@nebular/theme';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
@@ -60,6 +61,7 @@ UserProfileComponent;
     ReactiveFormsModule,
     NbSelectModule,
     NbSpinnerModule,
+    NbTreeGridModule,
     NgCircleProgressModule.forRoot({
       backgroundOpacity: 1,
       backgroundStrokeWidth: 30,
