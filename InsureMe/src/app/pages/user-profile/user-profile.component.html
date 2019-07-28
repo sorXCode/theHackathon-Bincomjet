@@ -22,25 +22,56 @@
       </div>
 
       <div class="col-md-8 col-lg-8 col-xxl-8 col-sm-12 col-xxxl-8">
-        <nb-card>
+        <nb-card *ngIf="loading">
+          <nb-card-header>
+            Profile Information
+          </nb-card-header>
+          <nb-card-body
+            [nbSpinner]="true"
+            nbSpinnerStatus="primary"
+          ></nb-card-body>
+        </nb-card>
+
+        <nb-card *ngIf="!loading && !error">
           <nb-card-header>
             Profile Information
           </nb-card-header>
           <nb-card-body>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
-            repellat qui odio unde quo, reprehenderit repellendus earum,
-            excepturi ex perferendis ducimus inventore molestiae! Neque eum
-            similique reprehenderit laboriosam optio deserunt alias odit
-            nesciunt labore itaque placeat, dolores quod tempore esse ipsa fuga
-            illo sed reiciendis vero quia incidunt ab. Itaque illo vitae quae
-            vero nostrum dignissimos harum ad, voluptatem provident voluptas
-            quidem possimus ea, autem ut quasi tempore eaque veritatis porro
-            doloremque enim perspiciatis laboriosam amet exercitationem
-            excepturi. Voluptates nobis maxime numquam blanditiis ratione
-            nostrum. Saepe quaerat, consequatur doloremque eum dignissimos dolor
-            dolorum dicta, magnam repellendus iusto ab accusamus? Placeat?
+            <!-- Fill in profile info here -->
+            <div class="mx-auto">
+              <img
+                [src]="image"
+                class="img-fluid mx-auto"
+                alt="Profile Picture"
+              />
+            </div>
+            <br />
+            <!-- <h4>Username: {{ username | ngxCapitalize }}</h4> -->
+
+            <h6>
+              <nb-icon icon="person-outline" status="primary"></nb-icon> Name:
+              {{ firstname }} {{ lastname }}
+            </h6>
+
+            <h6>
+              <nb-icon icon="email-outline" status="primary"></nb-icon> Email:
+              {{ email }}
+            </h6>
+            <h6>
+              <nb-icon icon="credit-card" status="primary"></nb-icon> Wallet
+              Balance: {{ wallet_balance || 0 }}
+            </h6>
           </nb-card-body>
           <nb-card-footer></nb-card-footer>
+        </nb-card>
+
+        <nb-card *ngIf="error">
+          <nb-card-header>
+            Profile Information
+          </nb-card-header>
+          <nb-card-body>
+            Error loading Profile, Please check your internet connection
+          </nb-card-body>
         </nb-card>
       </div>
     </div>

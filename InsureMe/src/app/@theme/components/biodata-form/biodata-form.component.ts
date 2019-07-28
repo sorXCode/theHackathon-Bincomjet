@@ -10,12 +10,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class BiodataFormComponent implements OnInit {
   imageObj: any;
+  biodata_form: FormGroup;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private infoService: InformationService
   ) {}
-  biodata_form: FormGroup;
 
   ngOnInit() {
     this.biodata_form = new FormGroup({
@@ -30,7 +30,7 @@ export class BiodataFormComponent implements OnInit {
   handleImg(e) {
     console.log('image:', e);
     const file = e.target.files[0];
-    this.imageObj = file || file.name;
+    this.imageObj = file.name;
   }
 
   submit() {
@@ -44,17 +44,27 @@ export class BiodataFormComponent implements OnInit {
     const firstname = this.biodata_form.value.firstname;
     const lastname = this.biodata_form.value.lastname;
     const email = this.biodata_form.value.email;
-    const image = this.imageObj;
+    // const image = this.imageObj;
+    const image = this.biodata_form.value.image;
+    const token = sessionStorage.getItem('token');
 
     const data = {
       username,
       firstname,
       lastname,
       email,
-      image
+      image,
+      // Add token
+      token
     };
     // Do API transaction here
     console.table(data);
+    this.infoService
+      .updateProfile(data)
+      .then(res => res)
+      .then(data => {
+        console.log(data);
+      });
   }
   goBack() {
     this.router.navigate(['/'], { relativeTo: this.activatedRoute });

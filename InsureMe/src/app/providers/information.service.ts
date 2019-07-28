@@ -14,6 +14,8 @@ export class InformationService {
   update_url: string =
     'http://uraniumkid40.pythonanywhere.com/insuretech_apis/profile_update_api/';
 
+  view_profile_url: string = "http://uraniumkid40.pythonanywhere.com/insuretech_apis/profile_view_api/";
+
   fetchTips() {
     return this.http
       .get(this.tips_url)
@@ -27,5 +29,10 @@ export class InformationService {
 
   updateProfile(data) {
     return this.http.post(this.update_url, data).toPromise();
+  }
+
+  getProfile(data) {
+    return this.http
+      .post(this.view_profile_url, data).toPromise();
   }
 }
