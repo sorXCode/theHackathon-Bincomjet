@@ -1,3 +1,28 @@
-<p>
-  my-policies works!
-</p>
+<!-- <nb-card>
+  <nb-card-body>
+
+    <table [nbTreeGrid]="data" equalColumnsWidth>
+
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+      <ng-container [nbTreeGridColumnDef]="customColumn">
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+
+          <nb-tree-grid-row-toggle
+            [expanded]="row.expanded"
+            *ngIf="row.data.kind === 'dir'">
+          </nb-tree-grid-row-toggle>
+
+          {{row.data.name}}
+
+        </td>
+      </ng-container>
+
+      <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+      </ng-container>
+
+    </table>
+
+  </nb-card-body>
+</nb-card> -->

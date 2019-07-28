@@ -1,4 +1,7 @@
+import { InformationService } from './../../providers/information.service';
 import { Component, OnInit } from '@angular/core';
+import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+
 
 @Component({
   selector: 'ngx-my-policies',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-policies.component.scss']
 })
 export class MyPoliciesComponent implements OnInit {
-
-  constructor() { }
+  constructor(private infoService: InformationService) {}
 
   ngOnInit() {
+    const autoData = this.infoService.getAutoData();
+    if (autoData) {
+      console.log(autoData);
+    }
   }
-
 }
