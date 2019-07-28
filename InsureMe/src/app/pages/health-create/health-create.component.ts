@@ -1,5 +1,7 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { InformationService } from '../../providers/information.service';
 
 @Component({
   selector: 'ngx-health-create',
@@ -10,7 +12,11 @@ export class HealthCreateComponent implements OnInit {
   options = ['Yes', 'No'];
   health_insurance: FormGroup;
 
-  constructor() {}
+  constructor(
+    private infoService: InformationService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.health_insurance = new FormGroup({
@@ -25,5 +31,10 @@ export class HealthCreateComponent implements OnInit {
 
   submit() {
     console.log('form values:', this.health_insurance.value);
+    const data = this.health_insurance.value;
+    this.infoService.setAutoData(data);
+    this.router.navigate(['/pages/my-policies'], {
+      relativeTo: this.activeRoute
+    });
   }
 }
