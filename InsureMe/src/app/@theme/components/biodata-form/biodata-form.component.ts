@@ -65,6 +65,7 @@ export class BiodataFormComponent implements OnInit {
       .then(data => {
         console.log(data);
       });
+    this.router.navigate(['user-profile'], { relativeTo: this.activatedRoute})  
   }
   goBack() {
     this.router.navigate(['/'], { relativeTo: this.activatedRoute });

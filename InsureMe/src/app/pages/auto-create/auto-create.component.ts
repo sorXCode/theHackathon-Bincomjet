@@ -39,9 +39,7 @@ export class AutoCreateComponent implements OnInit {
 
   submit() {
     console.log('form values:', this.auto_insurance.value);
-    const data = {
-      form: this.auto_insurance.value
-    };
-    this.infoService.setAutoData(data);
+    const data = this.auto_insurance.value;
+    // this.infoService.setAutoData(data);
   }
 }

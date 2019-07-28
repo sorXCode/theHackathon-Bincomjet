@@ -63,6 +63,10 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/'], { relativeTo: this.activatedRoute });
   }
 
+  gotoProfile() {
+    this.router.navigate(['user-profile'], { relativeTo: this.activatedRoute });
+  }
+
   // showToast(position, message) {
   //   this.toastrService.show(message || 'User successfully registered', {
   //     position,

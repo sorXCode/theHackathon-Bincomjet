@@ -1,7 +1,9 @@
-<!-- <nb-card>
+<nb-card>
+  <nb-card-header>
+    Your Registered Policy
+  </nb-card-header>
   <nb-card-body>
-
-    <table [nbTreeGrid]="data" equalColumnsWidth>
+    <!-- <table [nbTreeGrid]="data" equalColumnsWidth>
 
       <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
 
@@ -22,7 +24,15 @@
         <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
       </ng-container>
 
-    </table>
+    </table> -->
 
+    <h4>Find Details Of Your Health Insurance Product Here</h4>
+    <br />
+    <h6>How much cover would you like to have? {{ cover }}</h6>
+    <h6>Do you have any current health insurance cover? {{ currentCover }}</h6>
+    <h6>Your height: {{ height }}</h6>
+    <h6>Your weight: {{ weight }}</h6>
+    <h6>Your health history: {{ history }}</h6>
+    <h6>Additional comments: {{ comments }}</h6>
   </nb-card-body>
-</nb-card> -->
+</nb-card>
