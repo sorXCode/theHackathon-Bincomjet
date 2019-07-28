@@ -69,7 +69,7 @@
               />
             </div>
 
-            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+            <!-- <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
               <label for="image" class="label">Image</label>
               <input
                 nbInput
@@ -79,6 +79,17 @@
                 formControlName="image"
                 fullWidth
                 (change)="handleImg($event)"
+              />
+            </div> -->
+            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="image" class="label">Image URL</label>
+              <input
+                nbInput
+                type="text"
+                id="image"
+                formControlName="image"
+                fullWidth
+                placeholder = 'Enter image URL'
               />
             </div>
           </div>
