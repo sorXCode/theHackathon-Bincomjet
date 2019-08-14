@@ -157,7 +157,7 @@ class PaymentReceipt (models.Model):
                         ('Goods_only', 'Goods_only'),
                         ('Passangers_only', 'Passangers_only'),)
     insuranceuserprofile = models.ForeignKey(AInsuranceUserProfile, on_delete=models.CASCADE)
-    descriptioin = models.CharField(max_length=100, blank=True, default='')
+    description = models.CharField(max_length=100, blank=True, default='')
     amount = models.IntegerField(blank=True, default=0)
     date_of_purchase = models.DateTimeField(auto_now_add=True)
     transaction_id = models.CharField(max_length=100, blank=True, )
@@ -175,7 +175,7 @@ class CreditReceipt (models.Model):
                         ('Goods_only', 'Goods_only'),
                         ('Passangers_only', 'Passangers_only'),)
     insuranceuserprofile = models.ForeignKey(AInsuranceUserProfile, on_delete=models.CASCADE)
-    descriptioin = models.CharField(max_length=100, blank=True, default='')
+    description = models.CharField(max_length=100, blank=True, default='')
     amount = models.IntegerField(blank=True, default=0)
     transaction_date = models.DateTimeField(auto_now_add=True)
     transaction_id = models.CharField(max_length=100, blank=True, )
