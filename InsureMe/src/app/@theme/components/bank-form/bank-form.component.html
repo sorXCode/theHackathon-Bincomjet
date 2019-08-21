@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <h1 id="title" class="title text-center">Enter your Bank Details</h1>
+    <nb-card>
+      <nb-card-header>
+        <nav class="navigation">
+          <a (click)="goBack()">
+            <nb-icon
+              icon="arrow-back-outline"
+              size="large"
+              status="primary"
+            ></nb-icon>
+          </a>
+        </nav>
+      </nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="submit()" [formGroup]="bank_form">
+          <div class="form-group row">
+            <div class="col-md-6 col-sm-12 col-xxl-6">
+              <label for="bank" class="label">Bank name</label><br />
+              <input
+              nbInput
+              type="text"
+              fullWidth
+              id="bankname"
+              formControlName="bank_name"
+              placeholder="bank name"
+            />
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xxl-6 col-xxxl-6 col-sm-12">
+              <label for="accountname" class="label">Account name</label>
+              <input
+                nbInput
+                type="text"
+                fullWidth
+                id="accountname"
+                formControlName="account_name"
+                placeholder="account_name"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="accountnumber" class="label">Account number</label>
+              <input
+                nbInput
+                type="number"
+                formControlName="account_number"
+                placeholder="Account number"
+                id="accountnumber"
+                fullWidth
+              />
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="bvn" class="label">BVN</label>
+              <input
+                nbInput
+                type="number"
+                placeholder="BVN"
+                id="bvn"
+                formControlName="bvn"
+                fullWidth
+              />
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="phone" class="label">Phone number</label>
+              <input
+                nbInput
+                type="number"
+                placeholder="Phone number"
+                id="phone"
+                formControlName="phone_number"
+                fullWidth
+              />
+            </div>
+          </div>
+
+          <button class="btn-block btn btn-primary">Submit</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

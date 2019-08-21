@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <nb-card>
+      <nb-card-header>Buy New Life Insurance Policy</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="life_insurance" (ngSubmit)="submit()">
+          <div class="form-group row">
+            <div class="col-md-6 col-xxl-6 col-lg-6 col-sm-12">
+              <label for="life_plan" class="label">Choose life plan</label
+              ><br />
+              <nb-select
+                class="col-md-6 col-xxl-6 col-lg-6 col-sm-12"
+                id="life_plan"
+                placeholder="--Life plan--"
+                fullWidth
+                formControlName="life_plan"
+              >
+                <nb-option *ngFor="let plan of plans" [value]="plan">
+                  {{ plan }}
+                </nb-option>
+              </nb-select>
+            </div>
+
+            <div class="col-md-6 col-xxl-6 col-lg-6 col-sm-12">
+              <label for="cover_amount" class="label"
+                >How much life insurance do you want us to quote?</label
+              >
+              <input type="text" fullWidth nbInput placeholder="How much cover?" formControlName="cover_amount"/>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 col-xxl-6 col-lg-6 col-sm-12">
+              <label for="height" class="label">Enter your height</label>
+              <input
+                nbInput
+                type="text"
+                fullWidth
+                placeholder="height in feet or meters"
+                formControlName="height"
+              />
+            </div>
+
+            <div class="col-md-6 col-xxl-6 col-lg-6 col-sm-12">
+              <label for="weight" class="label">Enter your weight</label>
+              <input nbInput type="text" fullWidth placeholder="weight in kilograms" formControlName="weight"/>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-xxl-12 col-lg-12 col-xxxl-12">
+              <label for="health_issues" class="label"
+                >Describe any health issues</label
+              >
+              <br />
+              <textarea
+                class="col-md-12 col-xxl-12 col-lg-12 col-xxxl-12"
+                nbInput
+                fullWidth
+                id="health_issues"
+                cols="15"
+                rows="5"
+                formControlName="health_issues"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xxxl-12 col-sm-12 col-lg-12 col-xxl-12">
+            <h6>If you have an existing life insurance:</h6>
+          </div>
+          <br>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-xxl-12 col-sm-12 col-xxxl-12 col-lg-12">
+              <label for="total_existing" class="label"
+                >Total life insurance on you right now?</label
+              >
+              <input
+                nbInput
+                type="number"
+                fullWidth
+                placeholder="Total existing life insurance on you"
+                formControlName="total_existing"
+                id="total_existing"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 col-lg-6 col-xxl-6 col-xxxl-6 col-sm-12">
+              <label for="cancel_existing" class="label"
+                >Are you planning on cancelling any existing life
+                insurance?</label
+              >
+              <nb-radio-group id="cancel_existing" formControlName="cancel_existing">
+                <nb-radio
+                  *ngFor="let cancel_existing of options"
+                  [value]="cancel_existing"
+                >
+                  {{ cancel_existing }}
+                </nb-radio>
+              </nb-radio-group>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xxl-6 col-xxxl-6 col-sm-12">
+              <label for="existing_life_insurance" class="label"
+                >Do you have group life insurance through work?</label
+              >
+              <nb-radio-group id="existing_life_insurance" formControlName="existing_life_insurance">
+                <nb-radio
+                  *ngFor="let existing_life_insurance of options"
+                  [value]="existing_life_insurance"
+                >
+                  {{ existing_life_insurance }}
+                </nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-12 col-lg-12 col-xxl-12 col-xxxl-12">
+              <label for="additional_comments" class="label"
+                >Please add any additional comments or questions</label
+              >
+              <br />
+              <textarea
+                class="col-md-12 col-xxl-12 col-lg-12 col-xxxl-12"
+                nbInput 
+                fullWidth
+                id="additional_comments"
+                formControlName="additional_comments"
+                cols="15"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block">Submit</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

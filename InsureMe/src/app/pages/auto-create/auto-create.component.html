@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <nb-card>
+      <nb-card-header>Buy New Auto Insurance Policy</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="auto_insurance" (ngSubmit)="submit()" >  
+            <div class="form-group row">
+              <div class="col-md-3 col-sm-6 col-xxl-3">
+                <label for="model" class="label">Vehicle model</label>
+                <input type="text" nbInput fullWidth id="model" placeholder="Vehicle model" formControlName="model">
+              </div>
+              
+              <div class="col-md-3 col-sm-6 col-xxl-3">
+                  <label for="reg_no" class="label">Registration number</label>
+                  <input type="text" nbInput fullWidth id="reg_no" placeholder="Registration Number" formControlName="reg_no">
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xxl-3">
+                  <label for="c_c" class="label">Vehicle C.C.</label>
+                  <input type="text" nbInput fullWidth id="c_c" placeholder="Vehicle Fuel Capacity" formControlName="fuel_capacity">
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xxl-3">
+                  <label for="engine_num" class="label">Engine Number</label>
+                  <input type="text" placeholder="Engine No" nbInput id="engine_num" fullWidth formControlName="engine_num">
+                  </div>
+            </div>
+
+
+              <div class="form-group row">
+                <div class="col-md-4 col-sm-12 col-xxl-4">
+                    <label for="type" class="label">Vehicle Type</label><br>
+                        <nb-select class="col-md-4 col-sm-12 col-xxl-4" id="type" formControlName="vehicle_type" placeholder="--Type--">
+                      <nb-option *ngFor="let type of types" [value]= "type">
+                        {{ type }}
+                      </nb-option>
+                    </nb-select>
+                  </div>
+
+                <div class="col-md-4 col-sm-12 col-xxl-4">
+                  <label for="cost_price" class="label">Cost price of vehicle</label>
+                  <input type="text" nbInput fullWidth id="cost_price" placeholder="Cost price" formControlName="cost_price">
+                </div>
+    
+                <div class="col-md-4 col-sm-12 col-xxl-4">
+                  <label for="date" class="label">Date of purchase</label>
+                  <input type="date" nbInput fullWidth id="date" placeholder="Date" formControlName="date_of_purchase">
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-6 col-sm-12 col-xxl-6">
+                  <label for="avg_maintenance" class="label">Average amount spent on car per month</label>
+                  <input type="number" nbInput fullWidth id="avg_maintenance" placeholder="Car maintenance" formControlName="avg_maintenance">
+                </div>
+    
+                <div class="col-md-6 col-sm-12 col-xxl-6">
+                  <label for="vehicle_faults" class="label">Recurrent vehicle faults</label>
+                  <input type="text" nbInput fullWidth id="vehicle_faults" placeholder="vehicle_faults" formControlName="vehicle_faults">
+                  </div>
+
+              </div>
+
+              <div class="form-group row">
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
+                    <label for="chassis_num" class="label">Chassis number</label>
+                    <input type="text" nbInput fullWidth id="chassis_num" placeholder="Chassis No" formControlName="chassis_num">
+                  </div>
+      
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
+                    <label for="mileage" class="label">Mileage covered</label>
+                    <input type="text" nbInput fullWidth id="mileage" placeholder="Mileage covered" formControlName="mileage">
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
+                    <label for="purpose" class="label">Purpose</label> <br>
+                    <nb-select class="col-md-4 col-sm-12 col-xxl-4" id="purpose" formControlName="purpose" placeholder="--Purpose--">
+                      <nb-option *ngFor="let purpose of purposes" [value]="purpose">
+                        {{ purpose }}
+                      </nb-option>
+                    </nb-select>
+                  </div>
+
+                  <div class="col-md-6 col-sm-12 col-xxl-6">
+                    <label for="auto_img" class="label">Please upload the image of the vehicle</label>
+                    <input type="file" accept="image/*" nbInput formControlName="auto_img" (change)="onFileSelected($event)" name="auto_img" id="auto_img" >
+                  </div>
+                </div>   
+
+              <div class="form-group row">
+                <div class="col-md-12 col-xxxl-12 col-sm-12 col-xxl-12">
+                    <h4 class="label">If for commercial purposes only, please select the loading type:</h4>
+                </div>
+                    <div class="col-md-12 col-sm-12 col-xxl-12">
+                    <nb-radio-group class="col-md-12 col-sm-12 col-xxl-12" id="loading_type" formControlName="loading_type">
+                      <nb-radio
+                        *ngFor="let loading_type of loading_types"
+                        [value]="loading_type"
+                      >
+                        {{ loading_type }}
+                      </nb-radio>
+                    </nb-radio-group>
+                    </div>
+              
+              </div>
+              <button class="btn-block btn btn-primary">Submit</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

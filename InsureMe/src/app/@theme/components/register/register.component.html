@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <nb-card>
+      <nb-card-header>
+        <h1 id="title" class="title text-center">Welcome to InsureMe!</h1>
+        <p class="text-center" id="subtitle">
+          Please fill in the correct details
+        </p>
+        <nav class="navigation">
+          <a (click)="goBack()">
+            <nb-icon
+              icon="arrow-back-outline"
+              size="large"
+              status="primary"
+            ></nb-icon>
+          </a>
+        </nav>
+      </nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="register()" [formGroup]="reg_form">
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label class="label" for="input-email">Email address:</label>
+              <input
+                nbInput
+                fullWidth
+                type="email"
+                inputmode="email"
+                name="email"
+                id="input-email"
+                pattern=".+@.+\..+"
+                placeholder="Email address"
+                fieldSize="large"
+                autofocus
+                formControlName="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label class="label" for="input-password">Password:</label>
+              <input
+                nbInput
+                type="password"
+                id="input-password"
+                name="password"
+                placeholder="Password"
+                fieldSize="large"
+                fullWidth
+                formControlName="password"
+              />
+            </div>
+          </div>
+          <!-- 
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label class="label" for="r-password">Repeat Password:</label>
+              <input
+                nbInput
+                type="password"
+                id="r-password"
+                name="password"
+                placeholder="Repeat Password"
+                fieldSize="large"
+                fullWidth
+                formControlName="r_password"
+              />
+            </div>
+          </div> -->
+
+          <button class="btn btn-block btn-primary">
+            Register
+          </button>
+        </form>
+
+        <br />
+
+        <section class="text-center another-action" aria-label="Login">
+          Already have an account?
+          <a class="text-link" (click)="gotoLogin()">Login</a>
+        </section>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

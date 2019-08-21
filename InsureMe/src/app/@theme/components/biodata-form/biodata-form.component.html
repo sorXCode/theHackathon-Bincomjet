@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <h1 id="title" style="color:dimgrey" class="title text-center">
+      Enter your Personal Details
+    </h1>
+    <nb-card>
+      <nb-card-header>
+        <nav class="navigation">
+          <a (click)="goBack()">
+            <nb-icon
+              icon="arrow-back-outline"
+              size="large"
+              status="primary"
+            ></nb-icon>
+          </a>
+        </nav>
+      </nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="submit()" [formGroup]="biodata_form">
+          <div class="form-group row">
+            <div class="col-md-6 col-sm-12 col-xxl-6">
+              <label for="firstname" class="label">First name</label><br />
+              <input
+                nbInput
+                type="text"
+                fullWidth
+                id="firstname"
+                formControlName="firstname"
+                placeholder="First name"
+              />
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xxl-6 col-xxxl-6 col-sm-12">
+              <label for="lastname" class="label">Last name</label>
+              <input
+                nbInput
+                type="text"
+                fullWidth
+                id="lastname"
+                formControlName="lastname"
+                placeholder="Last name"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="username" class="label">User name</label>
+              <input
+                nbInput
+                type="text"
+                formControlName="username"
+                placeholder="Username"
+                id="username"
+                fullWidth
+              />
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="email" class="label">Email address</label>
+              <input
+                nbInput
+                type="email"
+                inputmode="email"
+                placeholder="Email"
+                id="email"
+                formControlName="email"
+                fullWidth
+              />
+            </div>
+
+            <!-- <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="image" class="label">Image</label>
+              <input
+                nbInput
+                type="file"
+                id="image"
+                accept="image/*"
+                formControlName="image"
+                fullWidth
+                (change)="handleImg($event)"
+              />
+            </div> -->
+            <div class="col-md-4 col-lg-4 col-xxl-4 col-xxxl-4 col-sm-12">
+              <label for="image" class="label">Image URL</label>
+              <input
+                nbInput
+                type="text"
+                id="image"
+                formControlName="image"
+                fullWidth
+                placeholder = 'Enter image URL'
+              />
+            </div>
+          </div>
+
+          <button
+            class="btn-block btn btn-primary"
+            [disabled]="!biodata_form.valid"
+          >
+            Submit
+          </button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

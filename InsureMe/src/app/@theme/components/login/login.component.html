@@ -1,0 +1,69 @@
+<div class="row">
+  <!-- Add a back button here and on the register component -->
+  <div class="col-xxxl-12 col-md-12 col-sm-12 col-lg-12 col-xxl-12">
+    <nb-card>
+      <nb-card-header>
+        <h1 id="title" class="title text-center">Welcome back!</h1>
+        <p class="subtitle text-center" id="subtitle">Log in with your email</p>
+        <nav class="navigation">
+          <a (click)="goBack()">
+            <nb-icon
+              icon="arrow-back-outline"
+              size="large"
+              status="primary"
+            ></nb-icon>
+          </a>
+        </nav>
+      </nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="login()" [formGroup]="login_form">
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label class="label" for="input-email">Email address:</label>
+              <input
+                nbInput
+                fullWidth
+                type="email"
+                inputmode="email"
+                name="email"
+                id="input-email"
+                pattern=".+@.+\..+"
+                placeholder="Email address"
+                fieldSize="large"
+                autofocus
+                formControlName="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xxl-12">
+              <label class="label" for="input-password">Password:</label>
+              <input
+                nbInput
+                type="password"
+                id="input-password"
+                name="password"
+                placeholder="Password"
+                fieldSize="large"
+                fullWidth
+                formControlName="password"
+              />
+            </div>
+          </div>
+
+          <button class="btn btn-block btn-primary">
+            Log In
+          </button>
+        </form>
+
+        <br />
+
+        <section class="text-center another-action" aria-label="Register">
+          Don't have an account?
+          <a class="text-link" (click)="gotoRegister()">Register</a>
+        </section>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

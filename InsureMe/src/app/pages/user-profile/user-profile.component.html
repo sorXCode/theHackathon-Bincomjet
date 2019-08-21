@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-md-12 col-xxl-12 col-lg-12 col-xxxl-12 col-sm-12">
+    <!-- The first card showing the rating for the user -->
+    <div class="row">
+      <div class="col-md-6 col-sm-12 col-xxl-6 col-lg-6">
+        <nb-card>
+          <nb-card-header>
+            Claim Score
+          </nb-card-header>
+          <nb-card-body class="mx-auto my-auto">
+            <div class="mx-auto my-auto">
+              <circle-progress
+                class="mx-auto my-auto"
+                [percent]="35"
+                [radius]="90"
+              ></circle-progress>
+            </div>
+            <button nbButton class="btn-block btn-light mx-auto">Update Claim Score</button>
+          </nb-card-body>
+          <nb-card-footer></nb-card-footer>
+        </nb-card>
+      </div>
+
+      <div class="col-md-6 col-lg-6 col-xxl-6 col-sm-12 col-xxxl-6">
+        <nb-card *ngIf="loading">
+          <nb-card-header>
+            Profile Information
+          </nb-card-header>
+          <nb-card-body
+            [nbSpinner]="true"
+            nbSpinnerStatus="primary"
+          ></nb-card-body>
+        </nb-card>
+
+        <nb-card *ngIf="!loading && !error">
+          <nb-card-header>
+            Profile Information
+          </nb-card-header>
+          <nb-card-body>
+            <!-- Fill in profile info here -->
+            <div class="mx-auto">
+              <img
+                [src]="image"
+                class="img-fluid mx-auto"
+                alt="Profile Picture"
+              />
+            </div>
+            <br />
+            <!-- <h4>Username: {{ username | ngxCapitalize }}</h4> -->
+
+            <h6>
+              <nb-icon icon="person-outline" status="primary"></nb-icon> Name:
+              {{ firstname }} {{ lastname }}
+            </h6>
+
+            <h6>
+              <nb-icon icon="email-outline" status="primary"></nb-icon> Email:
+              {{ email }}
+            </h6>
+            <h6>
+              <nb-icon icon="credit-card" status="primary"></nb-icon> Wallet
+              Balance: {{ wallet_balance || 0 }}
+            </h6>
+          </nb-card-body>
+          <nb-card-footer></nb-card-footer>
+        </nb-card>
+
+        <nb-card *ngIf="error">
+          <nb-card-header>
+            Profile Information
+          </nb-card-header>
+          <nb-card-body>
+            Error loading Profile, Please check your internet connection
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </div>
+</div>
